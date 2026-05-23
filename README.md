@@ -40,7 +40,7 @@ ORDER BY churn_rate DESC;
 ```
 
 Result:
-- Germany has the highest churn rate.
+- Germany has the highest churn rate at 32.44%
 
 ![Country SQL](Images/sql_country.png)
 
