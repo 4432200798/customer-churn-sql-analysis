@@ -33,7 +33,7 @@ This project analyzes customer churn behavior using SQL and Power BI to identify
 
 ```sql
 SELECT country,
-AVG(churn) * 100 AS churn_rate
+ROUND(AVG(churn) * 100, 2) AS churn_rate
 FROM bank_churn
 GROUP BY country
 ORDER BY churn_rate DESC;
@@ -50,7 +50,7 @@ Result:
 
 ```sql
 SELECT gender,
-AVG(churn) * 100 AS churn_rate
+ROUND(AVG(churn) * 100, 2) AS churn_rate
 FROM bank_churn
 GROUP BY gender;
 ```
@@ -74,8 +74,8 @@ WHEN age BETWEEN 50 AND 59 THEN '50-59'
 ELSE '60+'
 END AS age_group,
 
-AVG(churn) * 100 AS churn_rate
-
+ROUND(AVG(churn) * 100, 2) AS churn_rate,
+COUNT(*) AS customers
 FROM bank_churn
 
 GROUP BY age_group
@@ -84,5 +84,6 @@ ORDER BY churn_rate DESC;
 
 Result:
 - Customers aged 50–59 represent the highest-risk segment.
+- These insights can help the business target high-risk customer segments and improve retention campaigns.
 
 ![Age SQL](Images/sql-age-group.png)
